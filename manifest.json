@@ -1,0 +1,11 @@
+{
+	"id": "note-archiver-plugin",
+	"name": "Note Archiver",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "Demonstrates some of the capabilities of the Obsidian API.",
+	"author": "HNIdesu",
+	"authorUrl": "https://github.com/HNIdesu",
+	"fundingUrl": "",
+	"isDesktopOnly": true
+}
