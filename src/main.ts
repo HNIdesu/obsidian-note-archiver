@@ -62,17 +62,17 @@ export default class NoteArchiverPlugin extends Plugin {
 						return;
 					}
 					if (currentFile) {
-						const fileList = [`"${currentFile.path}"`];
+						const fileList = new Set<string>([`"${currentFile.path}"`]);
 						for (const embed of app.metadataCache.getCache(
 							currentFile.path
 						)?.embeds ?? [])
-							fileList.push(`"${embed.link}"`);
+							fileList.add(`"${embed.link}"`);
 						const commandLine = settings.archiveCommandLine;
 						const outputFolder =
 							plugin.getOutputFolder(currentFile);
 						child_process.exec(
 							commandLine
-								.replace("{file_list}", fileList.join(" "))
+								.replace("{file_list}", Array.from(fileList).join(" "))
 								.replace(
 									"{output_path}",
 									path.join(
